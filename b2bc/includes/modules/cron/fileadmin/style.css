@@ -1,0 +1,32 @@
+.like
+{
+    font-size:18px;
+    border-right:2px solid blue;
+    border-bottom:3px solid blue;
+    background-color:rgb(100,100,255);
+}
+.love
+{
+    border-left:2px solid orange;
+    border-right:2px solid orange;
+    border-bottom:1px solid orange;
+}
+.error
+{
+    color:red;
+    border:2px solid red;
+}
+#header
+{
+    color:white;
+    font-size:18px;
+    border:1px solid green;
+    background-color:black;
+}
+#footer
+{
+    color:white;
+    font-size:18px;
+    border:1px solid blue;
+    background-color:black;
+}

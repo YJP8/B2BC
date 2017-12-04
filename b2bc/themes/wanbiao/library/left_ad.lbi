@@ -1,0 +1,27 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="picScroll-left2">
+			<div class="bd">
+				<ul class="picList">
+					<li>
+						<div class="pic">{insert name='ads' id=63 num=1}</div>
+					</li>
+					<li>
+						<div class="pic">{insert name='ads' id=64 num=1}</div>
+					</li>
+					<li>
+						<div class="pic">{insert name='ads' id=65 num=1}</div>
+					</li>
+					
+					
+					
+				</ul>
+			</div>
+             <div class="hds">
+				<ul><li class="on"></li><li></li></ul>
+				
+			</div>
+            
+            <script type="text/javascript">
+		jQuery(".picScroll-left2").slide({titCell:".hds ul",mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true});
+		</script>
+		</div>

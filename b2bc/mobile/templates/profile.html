@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>个人资料 - {$shop_name}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="ecdaddy.com">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="style/base.css?v=mzw" />
+</head>
+<body>
+
+{include file='head4.html'}
+<div style="margin-top: 8px;padding: 10px;background-color: #f2ebe3;border-top: 1px solid #ddd2c0;border-bottom: 1px solid #ddd2c0;box-shadow: inset 0 1px 0 #fff;"> <span class="red">个人资料</span></div>
+{if $f eq 1}
+<div class="login-reg-tip"> <font class="red">资料修成功！</font> </div>
+{elseif $f eq 2}
+<div class="login-reg-tip"> <font class="red">密码修成功！</font> </div>
+{elseif $f eq 3}
+<div class="login-reg-tip"> <font class="red">密码不正确！请确认密码为6位数以上</font> </div>
+{elseif $f eq 4}
+<div class="login-reg-tip"> <font class="red">原密码不正确！请输入正确的原密码</font> </div>
+{/if}
+<div class="login-reg mc radius">
+	<form name="formEdit" action="user.php" method="post">
+      <table width="100%" border="0">
+                <tr>
+                  <td width="10%" align="right" style="min-width:115px">出生日期： </td>
+                  <td align="left"> {html_select_date field_order=YMD prefix=birthday start_year=-60 end_year=+1 display_days=true month_format=%m day_value_format=%02d time=$profile.birthday} </td>
+                </tr>
+                <tr>
+                  <td width="8%" align="right">性别： </td>
+                  <td align="left"><input type="radio" name="sex" value="0" {if $profile.sex==0}checked="checked"{/if} />
+                    保密&nbsp;&nbsp;
+                    <input type="radio" name="sex" value="1" {if $profile.sex==1}checked="checked"{/if} />
+                    男&nbsp;&nbsp;
+                    <input type="radio" name="sex" value="2" {if $profile.sex==2}checked="checked"{/if} />
+                  女&nbsp;&nbsp; </td>
+                </tr>
+                <tr>
+                  <td width="8%" align="right"><span style="color:#FF0000"> *</span>邮箱： </td>
+                  <td align="left"><input name="email" type="text" value="{$profile.email}" size="25" class="common-input" /></td>
+                </tr>
+		{foreach from=$extend_info_list item=field}
+		<!-- {if $field.id eq 6} -->
+		<tr>
+		  <td width="8%" align="right">密码提示问题：</td>
+		  <td align="left">
+		  <select name='sel_question'>
+		  <option value='0'>请选择密码提示问题</option>
+		  {html_options options=$passwd_questions selected=$profile.passwd_question}
+		  </select>
+		  </td>
+		</tr>
+		<tr>
+		  <td width="8%" align="right" <!-- {if $field.is_need} -->id="passwd_quesetion"<!--{/if}-->><!-- {if $field.is_need} --><span style="color:#FF0000"> *</span><!-- {/if} -->密码问题答案：</td>
+		  <td align="left">
+		  <input name="passwd_answer" type="text" size="25" class="common-input" maxlengt='20' value="{$profile.passwd_answer}"/>
+		  </td>
+		</tr>
+		<!-- {else} -->
+		<tr>
+			<td width="8%" align="right" <!-- {if $field.is_need} -->id="extend_field{$field.id}i"<!--{/if}-->><!-- {if $field.is_need} --><span style="color:#FF0000"> *</span><!-- {/if} -->{$field.reg_field_name}：</td>
+			<td align="left">
+			<input name="extend_field{$field.id}" type="text" class="common-input" value="{$field.content}"/>
+			</td>
+		</tr>
+		<!-- {/if} -->
+		{/foreach}
+                <tr>
+                  <td colspan="2" align="center"><input name="act" type="hidden" value="act_edit_profile" />
+                    <input name="submit" type="submit" value="修改资料" class="sub_btn" />
+                  </td>
+                </tr>
+       </table>
+    </form>
+<form name="formPassword" action="user.php" method="post" >
+     <table width="100%" border="0">
+        <tr>
+          <td width="10%" align="right"  style="min-width:115px">原密码：</td>
+          <td align="left"><input name="old_password" type="password" size="25"  class="common-input" /></td>
+        </tr>
+        <tr>
+          <td align="right">新密码：</td>
+          <td align="left"><input name="new_password" type="password" size="25"  class="common-input" /></td>
+        </tr>
+        <tr>
+          <td align="right">确认密码：</td>
+          <td align="left"><input name="comfirm_password" type="password" size="25"  class="common-input" /></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center"><input name="act" type="hidden" value="act_edit_password" />
+            <input name="submit" type="submit" class="sub_btn"  value="修改密码" />
+          </td>
+        </tr>
+      </table>
+    </form>
+</div>
+{include file='foot4.html'}
+</body>
+</html>

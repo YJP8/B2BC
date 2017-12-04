@@ -1,0 +1,13 @@
+﻿<div class="new-footer">
+        	<div class="new-f-login">
+			{if $user_name}
+	<a href='user.php?act=user_center'>用户中心</a><span class="new-bar2">|</span><a href='user.php?act=logout'>退出</a>
+	{else}
+	<a href='user.php?act=login'>登录</a><span class="new-bar2">|</span><a href='user.php?act=register'>注册</a>
+	{/if}|
+    												<span class="new-back-top"><a href="#">反馈</a><span class="new-bar2">|</span><a href="#top">回到顶部</a></span>
+            </div>
+        	<div class="new-f-section"><a href="kefu.php">联系我们</a></div>
+             <div class="ft"><a href="../">电脑版</a><em>|</em><span style="color:red;">触屏版</span><em>|</em><a href="#">客户端</a></div>
+            <div class="new-f-section2">Copyright © 2012-2013  {$shop_name} 版权所有</div>
+        </div>

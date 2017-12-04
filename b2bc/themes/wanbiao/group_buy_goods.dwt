@@ -1,0 +1,487 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,lefttime.js'}
+<script type="text/javascript">
+  {foreach from=$lang.js_languages item=item key=key}
+    var {$key} = "{$item}";
+  {/foreach}
+</script>
+{insert_scripts files='left_goodslist.js'}
+<script>
+function changeAtt(t) {
+t.lastChild.checked='checked';
+for (var i = 0; i<t.parentNode.childNodes.length;i++) {
+        if (t.parentNode.childNodes[i].className == 'cattsel') {
+            t.parentNode.childNodes[i].className = '';
+        }
+    }
+t.className = "cattsel";
+changePrice();
+}
+</script>
+<script type="text/javascript">
+function $id(element) {
+  return document.getElementById(element);
+}
+//切屏--是按钮，_v是内容平台，_h是内容库
+function reg(str){
+  var bt=$id(str+"_b").getElementsByTagName("h2");
+  for(var i=0;i<bt.length;i++){
+    bt[i].subj=str;
+    bt[i].pai=i;
+    bt[i].style.cursor="pointer";
+    bt[i].onclick=function(){
+      $id(this.subj+"_v").innerHTML=$id(this.subj+"_h").getElementsByTagName("blockquote")[this.pai].innerHTML;
+      for(var j=0;j<$id(this.subj+"_b").getElementsByTagName("h2").length;j++){
+        var _bt=$id(this.subj+"_b").getElementsByTagName("h2")[j];
+        var ison=j==this.pai;
+        _bt.className=(ison?"":"h2bg");
+      }
+    }
+  }
+  $id(str+"_h").className="none";
+  $id(str+"_v").innerHTML=$id(str+"_h").getElementsByTagName("blockquote")[0].innerHTML;
+}
+
+</script>
+
+</head>
+<body>
+
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem --> 
+
+
+<div class="block box">
+ <!--当前位置 start-->
+ <div id="ur_here" style="padding: 10px 0 0 0; width:1000px;margin: 10px auto;">
+  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+ </div>
+<!--当前位置 end-->
+</div>
+<div class="content clearfix"> 
+  
+  <!--right start-->
+       <form action="group_buy.php?act=buy" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY">
+  <div class="block_s">
+    <div class="inDetail_body" style="width:1000px">
+      <div class="inDetail_left">
+        <div class="inDetail_left_top_out">
+        
+          <div class="inDetail_left_top" style="position:relative">
+       
+            <div class="left_top_title clearix">
+              <ul>
+                <li>分享到：</li>
+                <li><a class="title01" href="#" target="_blank" rel="nofollow">新浪微博</a></li>
+                <li><a class="title02" href="#" target="_blank" rel="nofollow">腾讯微博</a></li>
+                <li><a class="title03" href="#" target="_blank" rel="nofollow">QQ空间</a></li>
+                <li><a class="title04" href="#" target="_blank" rel="nofollow">美丽说</a></li>
+                <li><a class="title05" href="#" target="_blank" rel="nofollow">蘑菇街</a></li>
+                <li><a class="title06" href="#" target="_blank" rel="nofollow">开心</a></li>
+                <li><a class="title07" href="#" target="_blank" rel="nofollow">人人</a></li>
+                <li><a class="title08" href="#" target="_blank" rel="nofollow">豆瓣</a></li>
+                <li style="position:relative;"><a class="title09" href="#" id="share_smore" target="_blank" rel="nofollow">更多</a>
+                  <div class="sh_more" id="sh_more">
+                    <div class="sh_title">分享到...</div>
+                    <ul>
+                      <li><a target="_blank" href="#" class="title10">搜狐微博</a></li>
+                      <li><a target="_blank" href="#" title="115收藏夹" class="mark115 title11">115收藏夹</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="left_top_txt"> <b><span>限时特卖:</span> {$group_buy.goods_name|escape:html}</b> </div>
+            <div class="left_top_box">
+              <div class="left_top_table">
+                <div class="left_topTable_02">
+                  <div class="left_topTable_btn"> <b><span class="arial">¥</span>{$group_buy.price_ladder.0.price}</b>
+
+                    <div class="left_topTable_buy">                 <input type="hidden" name="group_buy_id" value="{$group_buy.group_buy_id}" /><input type="submit" style="vertical-align:middle; background:url(images/purchase_button.jpg) no-repeat; height:39px; overflow:hidden; border:0; margin:0; padding:0; width:76px; cursor:pointer;" value=" " id="ToBuy" onmouseover="this.style.backgroundPosition='0 -39px'" onmouseout="this.style.backgroundPosition='0 0'"/> </div>
+                  </div>
+                </div>
+                <div class="left_topTable_01">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <th>市场价</th>
+                        <th>折扣</th>
+                        <th>为您节省</th>
+                      </tr>
+                      <tr>
+                        <td class="topTable_through"><span class="arial">¥</span>{$group_buy.market_price}</td>
+                        <td>{$group_buy.zhekou}折</td>
+                        <td><span class="arial">¥</span>{$group_buy.jiesheng}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="left_topTable_03">
+
+	                                <div class="topTable_endtime">距离团购结束还有</div>
+
+                                    <div id="deal-timeleft_check" class="deal_time deal-box deal-timeleft deal-on"></div>
+
+                                    <div id="timer" class="topTable_timer"><p class="end_date" value="{$group_buy.end_date}"></p></div>
+
+                               </div>
+                <div class="left_topTable_04">
+                  <div class="topTable_buy"><strong>{$group_buy.valid_goods}</strong>人已购买</div>
+                  <div class="topTable_gif">数量有限下手要快哦</div>
+                </div>
+              </div>
+              <div class="left_top_img"> <img src="{$gb_goods.goods_thumb}" alt="{$gb_goods.goods_name|escape:html}" /> </div>
+            </div>
+            <div class="clear" style="clear:both;"></div>
+               <!-- {* 开始循环所有可选属性 *} --> 
+                <!-- {foreach from=$specification item=spec key=spec_key} -->
+                <p class="clearfix">
+                
+                <p> <strong class="s1" style="padding-left:30px;">{$spec.name}</strong>
+                  <div style="float:left; width:500px;"> 
+                    <!-- {* 判断属性是复选还是单选 *} --> 
+                    <!-- {if $spec.attr_type eq 1} --> 
+                    <!-- {if $cfg.goodsattr_style eq 1} -->
+                    <div class="catt"> 
+                      <!-- {foreach from=$spec.values item=value key=key} --> 
+                      <a style=" text-decoration:none; position:relative" {if $key eq 0}class="cattsel"{/if} onclick="changeAtt(this)" href="javascript:;" name="{$value.id}" title="[{if $value.price gt 0}{$lang.plus}{elseif $value.price lt 0}{$lang.minus}{/if} {$value.format_price|abs}]">{$value.label}<span class="sets"></span>
+                      <input style="display:none" id="spec_value_{$value.id}" type="radio" name="spec_{$spec_key}" value="{$value.id}" {if $key eq 0}checked{/if} /></a> 
+                      <!-- {/foreach} --> 
+                    </div>
+                    <input type="hidden" name="spec_list" value="{$key}" />
+                    <!-- {else} -->
+                    <select name="spec_{$spec_key}" onchange="changePrice()">
+                      <!-- {foreach from=$spec.values item=value key=key} -->
+                      <option label="{$value.label}" value="{$value.id}">{$value.label} {if $value.price gt 0}{$lang.plus}{elseif $value.price lt 0}{$lang.minus}{/if}{if $value.price neq 0}{$value.format_price}{/if}</option>
+                      <!-- {/foreach} -->
+                    </select>
+                    <input type="hidden" name="spec_list" value="{$key}" />
+                    <!-- {/if} --> 
+                    <!-- {else} --> 
+                    <!-- {foreach from=$spec.values item=value key=key} -->
+                    <label for="spec_value_{$value.id}">
+                      <input type="checkbox" name="spec_{$spec_key}" value="{$value.id}" id="spec_value_{$value.id}" onclick="changePrice()" />
+                      {$value.label} [{if $value.price gt 0}{$lang.plus}{elseif $value.price lt 0}{$lang.minus}{/if} {$value.format_price|abs}] </label>
+                    <!-- {/foreach} -->
+                    <input type="hidden" name="spec_list" value="{$key}" />
+                    <!-- {/if} --> 
+                  </div>
+                </p>
+                </p>
+                <!-- {/foreach} --> 
+                <!-- {* 结束循环可选属性 *} -->
+                
+           
+          
+          </div>
+        </div>
+    
+   </div>
+    <div class="inDetail_right">
+        <div class="ranking_out">
+          <div class="ranking">
+            <div class="inDetail_scan"> <a href="#" target="_blank" class="scan_pic"> <img src="http://www.miqi.cn/static/imagecache/150026_98_98.jpg"> </a>
+              <div class="scan_txt"> <span class="scan_num_con"><strong class="scan_num" id="scan_num_view">{$gb_goods.click_count}</strong>人</span> 已浏览本产品<br>
+                下手要快啊！ </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        <!-- #BeginLibraryItem "/library/goods_related_group.lbi" --> <!-- #EndLibraryItem --> 
+        <!-- TemplateBeginEditable name="品牌专区" -->
+<!-- #BeginLibraryItem "/library/goods_related.lbi" -->
+
+<!-- {if $related_goods} -->
+<div class="user_loves lshadow">
+<h2 class="mall_leftTitle c333">{$lang.releate_goods}</h2>
+ <ul class="pro_list">
+     
+      <!--{foreach from=$related_goods item=releated_goods_data}-->
+       
+          <li >
+          <a href="{$releated_goods_data.url}" class="pro_pic"><img src="{$releated_goods_data.goods_thumb}" alt="{$releated_goods_data.goods_name}"  width="120" height="120"/></a>
+ 
+        <a href="{$releated_goods_data.url}" title="{$releated_goods_data.goods_name}" class="pro_title">{$releated_goods_data.short_name}</a>
+        <p class="already_sold">已售出 9 件</p>
+        <p class="pro_price">
+        <a>
+        <!-- {if $releated_goods_data.promote_price neq 0} -->
+        <font class="f1">{$releated_goods_data.formated_promote_price}</font>
+        <!-- {else} -->
+       <font class="f1">{$releated_goods_data.shop_price}</font>
+        <!-- {/if} -->
+        </a>
+        </p>
+          </li>
+       
+        <!--{/foreach}-->
+    </ul>
+     </div>
+<div class="blank5"></div>
+<!-- {/if} -->
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/brands.lbi" -->
+
+<!-- {if $brand_list} -->
+<div class="side_brd">
+<div class="side_out">
+<div class="side_list">
+  <!-- {foreach from=$brand_list item=brand name="brand_foreach"} -->
+   {if $smarty.foreach.brand_foreach.index <= 17}
+    
+      <!-- {if $brand.brand_logo} -->
+        <a href="{$brand.url}"><img src="data/brandlogo/{$brand.brand_logo}" alt="{$brand.brand_name|escape:html} ({$brand.goods_num})" /></a>
+      <!-- {else} -->
+        <a href="{$brand.url}">{$brand.brand_name|escape:html} {if $brand.goods_num}({$brand.goods_num}){/if}</a>
+      <!-- {/if} -->
+    {/if}
+  <!-- {/foreach} -->
+</div>
+</div>
+<div class="side_all">
+    	<a href="../brand.php" target="_blank"><img src="../images/logo_more.gif" border="0"></a>
+    </div>
+</div>
+<!-- {/if} -->
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+      </div>
+  </div>
+  <!--right end--> 
+  
+  <div class="inDetail_left_box_out">
+      <div class="inDetail_left_box"> 
+       <!--商品描述，商品属性 START-->
+        <div class="inDetail_boxOut ">
+          <DIV class="inDetail_box">
+            <div class="fixed_out " style="width:1000px; bottom:#ccc solid 1px">
+              <div  id="inner" class="fixed" >
+                <div style="width:103px; height:30px; position:absolute;z-index:99999999999; right:0px;">
+                  <div class="t_buy_now" >
+                     <a href="javascript:addToCart({$goods.goods_id})">立即购买</a></div>
+                </div>
+                <ul class="inLeft_btn">
+                  <li><a id="property-id" href="#shangpsx" class="current">商品详情</a></li>
+                  <li class="advantage"><a id="good-id" href="#miqfw">万表优势</a></li>
+                  <li><a id="shot-id" href="#miqsp">品牌故事</a></li>                  
+                  <li><a id="detail-id" href="#shangpjs">手表常识</a></li>
+                  <li><a id="coms1-id" href="#coms1">用户评价</a></li>
+                  
+                </ul>
+              </div>
+            </div>
+            <script type="text/javascript">
+var obj11 = document.getElementById("inner");
+var top11 = getTop(obj11);
+var isIE6 = /msie 6/i.test(navigator.userAgent);
+window.onscroll = function(){
+var bodyScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+if (bodyScrollTop > top11){
+obj11.style.position = (isIE6) ? "absolute" : "fixed";
+obj11.style.top = (isIE6) ? bodyScrollTop + "px" : "0px";
+} else {
+obj11.style.position = "static";
+}
+}
+function getTop(e){
+var offset = e.offsetTop;
+if(e.offsetParent != null) offset += getTop(e.offsetParent);
+return offset;
+}
+</script>
+            
+            <div  id="no_try_record"> 
+              
+              <!--商品属性-->
+              <div class="inLeft_title property_title" style="margin-top:55px;" id="shangpsx">
+              <div class="t">基本参数：</div>
+              </div>
+              <div class="inLeft_attributes clearfix" style="margin:0;">
+                <div class="inLeft_attributes_1">
+                  <ul >
+                      
+                      <!-- {foreach from=$properties item=property_group key=key} --> 
+                      <!-- {foreach from=$property_group item=property} -->
+                      <li>
+                       {$property.name|escape:html}：
+                        <span  class="fit_people ">{$property.value}</span>
+                      </li>
+                      <!-- {/foreach}--> 
+                      <!-- {/foreach}-->
+                      
+                   
+                  </ul>
+                </div>
+                <!--<div class="inLeft_orderDetail clearfix" >
+                  <div class="inLeft_orderDetail_in" > {$goods.goods_desc} </div>
+                </div>-->
+              </div>
+              
+                <!--万表优势-->
+                <div id="miqfw" class="clearfix">               
+               <!-- #BeginLibraryItem "/library/benwangyoushi.lbi" --><!-- #EndLibraryItem --> 
+                   </div> 
+                 <div class="blank5"></div>  
+              <!--品牌故事-->       
+            <div class=" clearfix" id="miqsp">
+              {$goods.goods_shipai}    </div>    
+                 <div class="blank5"></div>     
+              <!-- 手表常识-->
+             <div class=" clearfix" id="shangpjs">
+                    <!-- #BeginLibraryItem "/library/shoubiaochangshi.lbi" --><!-- #EndLibraryItem -->                  
+              </div>
+                
+                         
+               <!--收货评论-->                                       
+               <div class=" clearfix" id="coms1" style="margin-top:20px;">  </div>
+            
+                <div class="inLeft_comment" > 
+                             
+                              <!--商品评分 开始-->     
+                            <div id="i-comment"  style="margin-top:20px;">
+                <div class="rate"> <strong>{$comment_percent.haoping_percent}%</strong> <br> 好评度 </div>
+                <div class="percent"> 
+                  <dl> 
+                    <dt>好评</dt> 
+                    <dd class="d1"> 
+                      <div style="width: {$comment_percent.haoping_percent}%;"> </div> 
+                    </dd> 
+                    <dd class="d2"> {$comment_percent.haoping_percent}%</dd> 
+                  </dl> 
+                  <dl> 
+                    <dt>中评</dt> 
+                    <dd class="d1"> 
+                      <div style="width: {$comment_percent.zhongping_percent}%;"> </div> 
+                    </dd> 
+                    <dd class="d2"> {$comment_percent.zhongping_percent}%</dd> 
+                  </dl> 
+                  <dl> 
+                    <dt>差评</dt> 
+                    <dd class="d1"> 
+                      <div style="width: {$comment_percent.chaping_percent}%;"> </div> 
+                    </dd> 
+                    <dd class="d2"> {$comment_percent.chaping_percent}%</dd> 
+                  </dl> 
+                </div> 
+                <div class="actor"> 
+                 <a href="{$goods.url}"> <img src="{$goods.goods_thumb}" alt="" style="width:100px;"></a>
+                </div> 
+                <div class="btns"> 
+                  <div>购买过{$goods.goods_name}的顾客，在收到商品才可以对该商品发表评论</div> 
+                  <a href="javascript:void(0);" class="btn-comment" id="showcommentform">我要评价</a>
+                </div>
+                <div class="clear"></div>
+              </div>
+               <!--商品评分 结束-->    
+   
+                                
+              <div class="comment_body " >
+               
+                <!-- #BeginLibraryItem "/library/comments.lbi" --> {insert_scripts files='transport.js,utils.js'}
+                <div id="ECS_COMMENT"> {* ECSHOP 提醒您：动态载入comments_list.lbi，显示评论列表和评论表单 *}{insert name='comments' type=$type id=$id}</div>
+                <!-- #EndLibraryItem --> 
+                </div>
+                </div>
+      
+            </DIV>
+          </div>
+        </div>
+        <div class="blank"></div>
+        <!--商品描述，商品属性 END-->
+      </div>
+      
+    </div>
+</div>
+</form>
+<div class="blank5"></div>
+
+       <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem --> 
+ 
+</div>
+<script>
+$(function(){
+	var datename = new Date();
+	var Offset = datename.getTimezoneOffset() * 28800;
+		
+	setInterval(function(){
+		$(".end_date").each(function(){
+			var obj = $(this);
+			var endTime = new Date(parseInt(obj.attr('value')) * 1000 - Offset) ;
+			var show_day =  obj.attr('showday');
+			var nowTime = new Date();
+			var nMS=endTime.getTime() - nowTime.getTime();
+			var myD=Math.floor(nMS/(1000 * 60 * 60 * 24));
+			var myH_show=Math.floor(nMS/(1000*60*60) % 24);
+			var myH=Math.floor(nMS/(1000*60*60));
+			var myM=Math.floor(nMS/(1000*60)) % 60;
+			var myS=Math.floor(nMS/1000) % 60;
+			var myMS=Math.floor(nMS/100) % 10;
+			var myHZero = '';
+ 			var myMZero = '';
+			var mySZero = '';
+			if (myH < 10)
+			{
+				var myHZero = '0';
+			}
+			if (myM < 10)
+			{
+				var myMZero = '0';
+			}
+			if (myS < 10)
+			{
+				var mySZero = '0';
+			}
+			if(myH>=0){
+				if(show_day == 'show')
+				{
+					var str = '还剩<strong class="tcd-d">'+myD+'</strong>天<strong class="tcd-h">'+myH_show+'</strong>小时<strong class="tcd-m">'+myM+'</strong>分<strong class="tcd-s">'+myS+'</strong>秒';
+				}
+				else
+				{
+					var str = '<span>'+myHZero+myH+'</span>时<span>'+myMZero+myM+'</span>分<span>'+mySZero+myS+'</span>秒';
+			
+				}
+			}else{
+				var str = "已结束！";	
+			}
+			obj.html(str);
+		  });
+	}, 100);
+})
+</script>
+</body>
+<script type="text/javascript">
+var gmt_end_time = "{$group_buy.gmt_end_date|default:0}";
+{foreach from=$lang.goods_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+var now_time = {$now_time};
+<!-- {literal} -->
+
+onload = function()
+{
+  try
+  {
+    onload_leftTime();
+  }
+  catch (e)
+  {}
+}
+<!-- {/literal} -->
+</script>
+</html>

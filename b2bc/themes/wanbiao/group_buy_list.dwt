@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,left_goodslist.js'}
+<script>
+function changeAtt(t) {
+t.lastChild.checked='checked';
+for (var i = 0; i<t.parentNode.childNodes.length;i++) {
+        if (t.parentNode.childNodes[i].className == 'cattsel') {
+            t.parentNode.childNodes[i].className = '';
+        }
+    }
+t.className = "cattsel";
+changePrice();
+}
+</script>
+<script type="text/javascript">
+function $id(element) {
+  return document.getElementById(element);
+}
+//切屏--是按钮，_v是内容平台，_h是内容库
+function reg(str){
+  var bt=$id(str+"_b").getElementsByTagName("h2");
+  for(var i=0;i<bt.length;i++){
+    bt[i].subj=str;
+    bt[i].pai=i;
+    bt[i].style.cursor="pointer";
+    bt[i].onclick=function(){
+      $id(this.subj+"_v").innerHTML=$id(this.subj+"_h").getElementsByTagName("blockquote")[this.pai].innerHTML;
+      for(var j=0;j<$id(this.subj+"_b").getElementsByTagName("h2").length;j++){
+        var _bt=$id(this.subj+"_b").getElementsByTagName("h2")[j];
+        var ison=j==this.pai;
+        _bt.className=(ison?"":"h2bg");
+      }
+    }
+  }
+  $id(str+"_h").className="none";
+  $id(str+"_v").innerHTML=$id(str+"_h").getElementsByTagName("blockquote")[0].innerHTML;
+}
+
+</script>
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem --> 
+<div class="block box">
+ <!--当前位置 start-->
+ <div id="ur_here" style="padding: 10px 0 0 0; width:1000px;margin: 10px auto;">
+  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+ </div>
+<!--当前位置 end-->
+</div>
+<div class="block_s clearfix"> 
+  <script>
+$(function(){
+	$("#group_box1").slide({mainCell:".group_l ul",titCell:".deal_brief_trigger .trigger",titOnClassName:"current",trigger:"click"});
+
+	var datename = new Date();
+	var Offset = datename.getTimezoneOffset() * 28800;
+		
+	setInterval(function(){
+		$(".end_date").each(function(){
+			var obj = $(this);
+			var endTime = new Date(parseInt(obj.attr('value')) * 1000 - Offset) ;
+			var show_day =  obj.attr('showday');
+			var nowTime = new Date();
+			var nMS=endTime.getTime() - nowTime.getTime();
+			var myD=Math.floor(nMS/(1000 * 60 * 60 * 24));
+			var myH_show=Math.floor(nMS/(1000*60*60) % 24);
+			var myH=Math.floor(nMS/(1000*60*60));
+			var myM=Math.floor(nMS/(1000*60)) % 60;
+			var myS=Math.floor(nMS/1000) % 60;
+			var myMS=Math.floor(nMS/100) % 10;
+			var myHZero = '';
+ 			var myMZero = '';
+			var mySZero = '';
+			if (myH < 10)
+			{
+				var myHZero = '0';
+			}
+			if (myM < 10)
+			{
+				var myMZero = '0';
+			}
+			if (myS < 10)
+			{
+				var mySZero = '0';
+			}
+			if(myH>=0){
+				if(show_day == 'show')
+				{
+					var str = '还剩<strong class="tcd-d">'+myD+'</strong>天<strong class="tcd-h">'+myH_show+'</strong>小时<strong class="tcd-m">'+myM+'</strong>分<strong class="tcd-s">'+myS+'</strong>秒';
+				}
+				else
+				{
+					var str = '<span class="times">'+myHZero+myH+'</span><em>时</em><span class="times">'+myMZero+myM+'</span><em>分</em><span class="times">'+mySZero+myS+'</span><em>秒</em>';
+				
+				}
+			}else{
+				var str = "已结束！";	
+			}
+			obj.html(str);
+		  });
+	}, 100);
+})
+</script>
+  <div id="main">
+    <div  id="home_slides_deals">
+      <div id="group_box1">
+        <div class="group_l" >
+          <ul id="deal_brief" style="position:absolute;">
+            
+            <!-- {foreach from=$gb_list item=group_buy name=foo} 循环团购活动开始 --> 
+            <!-- {if $smarty.foreach.foo.iteration < 4}-->
+            <li class="big_list clearfix" >
+              <div id="deal-title" style="padding-bottom:20px;">
+                <h1><span>限时特卖: </span></h1>
+                <h1><a  href="{$group_buy.url}" style=" text-decoration:none;" target="_blank">{$group_buy.goods_name|escape:html}</a></h1>
+              </div>
+              <div id="deal_info" style="border-right:1px solid #e5e5e5; width:222px; height:350px;">
+                <div class="ribbon ribbon_1">
+                  <div class="bg ">&nbsp;</div>
+                  <div class="price">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <th class="market_price">市场价</th>
+                          <th class="discount">折扣</th>
+                          <th>为您节省</th>
+                        </tr>
+                        <tr>
+                          <td class="market_price"><span class="arial">¥</span>{$group_buy.market_price}</td>
+                          <td class="ff4560">{$group_buy.zhekou}折</td>
+                          <td class="ff4560"><span class="arial">¥</span>{$group_buy.jiesheng}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="buyit"> <strong><em>¥</em>{$group_buy.price_ladder.0.price}</strong> <span><a href="{$group_buy.url}" onfocus="this.blur()" class="buybtn" onmousedown="this.className='buybtn btndown'" id="ToBuy" onmouseup="this.className='buybtn'" target="_blank"><img src="images/see_big.jpg" onmouseover="this.src='images/see_big_hover.jpg'" onmouseout="this.src='images/see_big.jpg'"></a></span> </div>
+                </div>
+                <div class=" countdown_1 countdown"> <span class="endtime">距离团购结束还有</span>
+                  <div class="deal_time deal-box deal-timeleft deal-on"></div>
+                  <div id="timer" class="main_timer end_date" value="{$group_buy.end_time}"></div>
+                </div>
+                <div class="deal_status deal_status_1">
+                  <div class="purhcase_number f20 "><span class="ff4560 f24 bold">{$group_buy.cur_amount}</span>人已购买</div>
+                  <div class="progress no_stock_soon"> 数量有限下手要快哦 </div>
+                </div>
+              </div>
+              <div class="deal_highlight">
+                <div id="deal_title_pic"><a href="{$group_buy.url}"><img height="350" src="{$group_buy.goods_thumb}" border="0" alt="{$group_buy.goods_name|escape:html}"></a></div>
+                <div class="left_top_title" style="position: absolute;top: 0;left: 0;">
+                  <ul>
+                    <li>分享到：</li>
+                    <li><a class="title01" href="#" target="_blank" rel="nofollow">新浪微博</a></li>
+                    <li><a class="title02" href="#" target="_blank" rel="nofollow">腾讯微博</a></li>
+                    <li><a class="title03" href="#" target="_blank" rel="nofollow">QQ空间</a></li>
+                    <li><a class="title04" href="#" target="_blank" rel="nofollow">美丽说</a></li>
+                    <li><a class="title05" href="#" target="_blank" rel="nofollow">蘑菇街</a></li>
+                    <li><a class="title06" href="#" target="_blank" rel="nofollow">开心</a></li>
+                    <li><a class="title07" href="#" target="_blank" rel="nofollow">人人</a></li>
+                    <li><a class="title08" href="#" target="_blank" rel="nofollow">豆瓣</a></li>
+                    <li style="position:relative;"><a class="title09 share_more_rel" href="javascript:void(0);" id="share_smore_150137" target="_blank" rel="nofollow">更多</a>
+                      <div class="sh_more" id="sh_more">
+                        <div class="sh_title">分享到...</div>
+                        <ul>
+                          <li><a target="_blank" href="#" class="title10">搜狐微博</a></li>
+                          <li><a target="_blank" href="#" title="115收藏夹" class="mark115 title11">115收藏夹</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <!-- {/if} --> 
+            <!-- {/foreach}-->
+          </ul>
+          <div class="deal_brief_trigger">
+            <!-- {foreach from=$gb_list item=group_buy name=foo} 循环团购活动开始 --> 
+            <!-- {if $smarty.foreach.foo.iteration < 4}-->
+				<div class="trigger  <!-- {if $smarty.foreach.foo.iteration eq 1}-->current <!-- {/if} --> " <!-- {if $smarty.foreach.foo.iteration eq 3}--> style="margin:0;"<!-- {/if} --> >{$group_buy.goods_name|escape:html}</div>
+            <!-- {/if} --> 
+            <!-- {/foreach}-->
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="banner_long">
+      <div class="banner_list_out">
+        <div class="banner_list"><!-- TemplateBeginEditable name="团购列表下方1" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+{insert name='ads' id=$ads_id num=$ads_num}
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable --></div>
+      </div>
+      <div class="banner_list_out">
+        <div class="banner_list"><!-- TemplateBeginEditable name="团购列表下方2" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+{insert name='ads' id=$ads_id num=$ads_num}
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable --></div>
+      </div>
+      <div class="banner_list_out">
+        <div class="banner_list"><!-- TemplateBeginEditable name="团购列表下方3" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+{insert name='ads' id=$ads_id num=$ads_num}
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable --></div>
+      </div>
+      <div class="banner_list_out">
+        <div class="banner_list"><!-- TemplateBeginEditable name="团购列表下方4" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+{insert name='ads' id=$ads_id num=$ads_num}
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable --></div>
+      </div>
+    </div>
+   <div class="blank"></div>
+     <!-- TemplateBeginEditable name="右边通栏广告（宽750px）" -->
+<!-- TemplateEndEditable -->
+     
+        <div class="stysearch stysearch_1">
+              <div class="ssearchl">
+                	<div style="display:none;" view="sstyle2_btn" orderby="down" name="displayorderid" id="rule-id" web_id="0"></div>
+                    <a class="schlist_upbtn" href="javascript:void(0);" onclick="X.list(this,'149966');" id="hot-id" name="hot" oby="up">人气</a>
+                    <a class="schlist_upbtn" href="javascript:void(0);" onclick="X.list(this,'149966');" id="price-id" name="price" oby="up">价格</a>
+                    <a class="schlist_downbtn" href="javascript:void(0);" onclick="X.list(this,'149966');" id="time-id" name="time" oby="up">时间</a>
+              </div>
+		</div>
+        <div class="multilist "> 
+          <!-- {if $gb_list} 如果有团购活动 --> 
+          <!-- {foreach from=$gb_list item=group_buy name=foo} 循环团购活动开始 --> 
+          <!-- {if $smarty.foreach.foo.iteration > 3}-->
+          <div class="box_d " style="float:left;  ">
+          <div class="multilbox">
+          <h2 class="multi_tit">
+            	<a href="{$group_buy.url}" target="_blank"><strong>{$group_buy.goods_name|escape:html}</strong></a></h2>
+                <div class="multi_img">
+                        	                       	
+           	            
+                <a href="{$group_buy.url}" target="_blank" class="buya">
+                                <img src="{$group_buy.goods_thumb}" border="0" alt="{$group_buy.goods_name|escape:html}" style="display: inline; width:200px;">
+                                </a>
+				<!--独家品牌标识-->
+				             </div>
+                             <div class="multi_pcbuy " id="btnstatus-id-149928">
+			  <table>
+                <tbody>
+				  <tr>
+                    <td>市场价</td>
+                    <td>折扣</td>
+                    <td>为您节省</td>
+                  </tr>
+                  <tr>
+                    <td style="text-decoration:line-through;font-size:15px;color:#999;"><span class="arial">¥</span>{$group_buy.market_price}</td>
+                    <td class="pcred">{$group_buy.zhekou}</td>
+                    <td class="pcred"><span class="arial">¥</span>{$group_buy.jiesheng}</td>
+                  </tr>
+                </tbody>
+		      </table>
+			  <a class="multi_btn" href="{$group_buy.url}" target="_blank"></a>
+			  <div class="multi_pc weis"><span class="arial f20">¥</span>{$group_buy.price_ladder.0.price}</div>
+			</div>
+          
+          </div>
+          <div class="mult_shade clear"></div>
+          </div>
+          <!-- {/if} --> 
+          <!--{/foreach}--> 
+          <!-- {else} --> 
+          <span style="margin:2px 10px; font-size:14px; line-height:36px;">{$lang.group_goods_empty}</span> 
+          <!-- {/if} --> 
+        </div>
+      
+      <div class="blank5"></div>
+      <div class="article">
+      <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+   </div>
+  </div>
+  
+  <div id="sidebar">
+  <p><!-- TemplateBeginEditable name="团购列表页广告右侧1" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+{insert name='ads' id=$ads_id num=$ads_num}
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable --><br></p>
+  <p><!-- TemplateBeginEditable name="团购列表页广告右侧2" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+{insert name='ads' id=$ads_id num=$ads_num}
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable --></p>
+  <p><!-- TemplateBeginEditable name="团购列表页广告右侧3" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+{insert name='ads' id=$ads_id num=$ads_num}
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable --></p>
+  
+  <!-- TemplateBeginEditable name="品牌专区" -->
+<!-- #BeginLibraryItem "/library/brands.lbi" -->
+
+<!-- {if $brand_list} -->
+<div class="side_brd">
+<div class="side_out">
+<div class="side_list">
+  <!-- {foreach from=$brand_list item=brand name="brand_foreach"} -->
+   {if $smarty.foreach.brand_foreach.index <= 17}
+    
+      <!-- {if $brand.brand_logo} -->
+        <a href="{$brand.url}"><img src="data/brandlogo/{$brand.brand_logo}" alt="{$brand.brand_name|escape:html} ({$brand.goods_num})" /></a>
+      <!-- {else} -->
+        <a href="{$brand.url}">{$brand.brand_name|escape:html} {if $brand.goods_num}({$brand.goods_num}){/if}</a>
+      <!-- {/if} -->
+    {/if}
+  <!-- {/foreach} -->
+</div>
+</div>
+<div class="side_all">
+    	<a href="../brand.php" target="_blank"><img src="../images/logo_more.gif" border="0"></a>
+    </div>
+</div>
+<!-- {/if} -->
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+<div class="boxxx">
+<dl class="boxx"  style="padding:0">
+
+		  
+
+          
+            <div ><a  target="_blank" href="#" ><img src="../images/online1.png" border="0"></a></div>
+            
+            <div class="telbtn" style="padding:0"><img src="../images/brand_tell02.jpg"></div>
+
+        </dl></div>
+  <div class="boxxx">
+        	<div class="query_body">
+            	<ul>
+                	<li class="query_btn01"><a href="http://www.miqi.cn/pihao/" target="_blank"></a></li>
+                    <li class="query_btn02"><a href="http://www.miqi.cn/meclub/charge.html" target="_blank"></a></li>
+                    <li class="query_btn03"><a href="http://www.miqi.cn/events/survey.html" target="_blank"></a></li>
+                   
+                </ul>
+            </div>
+        </div>
+  </div>
+</div>
+<div class="blank5"></div>
+
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem --> 
+
+</body>
+</html>

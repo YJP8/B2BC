@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{$shop_name}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="ecy.cc">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="style/base2013.css" />
+<link rel="stylesheet" type="text/css" href="style/index.css" />
+<script src="js/jquery-1.6.2.min.js"></script>
+<script src="js/jquery.tabify.js" type="text/javascript" charset=utf-8></script>
+<script src="js/jquery.flexslider.js"></script>
+<script type="text/javascript">
+	$(window).load(function() {
+		$('.images_slider').flexslider({
+		animation: "slide",
+		directionNav: false,
+		controlNav: true,
+		animationLoop: true,
+		animationDuration: 300, 
+		slideshow: false
+		});
+	});
+</script>
+</head>
+<body id="body" style="width:320px;margin:0 auto">
+{include file='head.dwt'}
+<div class="new-body-w320">
+</div>
+ <div class="new-ct">
+	<div class="new-main">
+            <div class="images_slider_container">
+            <div class="images_slider">
+                <ul class="slides">
+                  <li><a href='#'><img src="./../mobile/images/1.jpg" width="320" height="86"/></a></li>
+				<li><a href='#'><img src="./../mobile/images/2.jpg" width="320" height="86"/></a></li>
+				<li><a href='#'><img src="./../mobile/images/3.jpg" width="320" height="86"/></a></li>
+				<li><a href='#'><img src="./../mobile/images/4.jpg" width="320" height="86"/></a></li>
+				<li><a href='#'><img src="./../mobile/images/5.jpg" width="320" height="86"/></a></li>
+				<li><a href='#'><img src="./../mobile/images/6.jpg" width="320" height="86"/></a></li>
+				
+                </ul>
+           </div>
+        </div>
+        
+        <div class="new-mian-cont new-mg-t10">
+        	<ul class="new-main-sale new-tbl-type">
+            <li class="new-tbl-cell">
+            	<a href="#">
+                	<img src="./../mobile/images/a1.jpg" width="147px" height="80"/>
+                </a>
+            </li>
+            <li class="new-tbl-cell">
+				<a href="#">
+				   <img src="./../mobile/images/a2.jpg" width="147px" height="80"/>
+                </a>
+            </li>
+            </ul>
+            <div class="new-msale-lst new-p-re">
+                <ul class="new-tbl-type" style="position:absolute;margin-left:0px" id="slider">
+						{if $best_num > 0}
+						{foreach from=$best_goods item=best_data name=goo} 
+						 {if $smarty.foreach.goo.iteration <4}
+							<li class="new-tbl-cell"><a href="goods.php?id={$best_data.id}"><img src="./../{$best_data.thumb}" width="90" height="90"><span>  {if $promote_price}{$best_data.promote_price}{else}{$best_data.shop_price}{/if} </span></a></li>
+							{/if}
+							{/foreach}
+						{/if}		
+					   </ul>
+            </div>
+				<div class="new-service">
+                <div class="new-serv-lst new-p-re">
+                    <ul class="new-tbl-type">
+                        <li class="new-tbl-cell">
+                        	<div>
+                            	<a href="category.php" class="new-serv1"><span class="icon"><span></span></span><span>商品分类</span></a><a href="user.php?act=user_center" class="new-serv2"><span class="icon"><span></span></span><span>订单速查</span></a><a href="brands.php" class="new-serv3"><span class="icon"><span></span></span><span>品牌中心</span></a><a href="user.php?act=user_center" class="new-serv4"><span class="icon"><span></span></span><span>会员中心</span></a>
+                            </div>
+                            <div>
+                            	<a href="user.php?act=user_center" class="new-serv5">
+                                	<img src="./../mobile/images/a3.jpg" width="145px" height="70"/>
+                                </a><a href="user.php?act=user_center" class="new-serv6">
+                                <img src="./../mobile/images/a4.jpg" width="145px" height="70"/>
+                                </a>
+                            </div>
+                        </li>
+                       <li class="new-tbl-cell">
+                           <div>
+                            	<a href="#" class="new-serv7"><span class="icon"><span></span></span><span>电影票</span></a><a href="#"class="new-serv8">
+                                	<span class="icon"><span></span></span>
+                                    <span class="last">景点门票</span>
+                                </a><a href="#" class="new-serv9 new-p-re"  target="_blank"><span class="icon"><span></span></span><span>电子书</span><span class="new-icon-new">new</span></a>
+                            </div><div><a href="#" class="new-serv10"><span class="icon"><span></span></span>
+                                    <span class="last">酒店</span>
+                                </a><a href="#" class="new-serv11">
+                                	<span class="icon"><span></span></span>
+                                    <span class="last">机票</span>
+                                </a>
+                            </div>
+                       </li>
+                    </ul>
+                </div>
+
+                <div class="new-m-fl new-mg-t5">
+                    <div class="new-tbl-type">
+                    	<a href="#" class="new-tbl-cell new-mfl-tit">
+                        	<img src="./../mobile/images/a5.jpg" width="81px" height="81"/>
+                        </a>
+                        <a href="#" class="new-tbl-cell new-p-re"><img src="./../mobile/images/ad/img_fl.gif" width="214" height="81" alt="" class="new-mg-lf2"></a>
+                    </div>
+                    <div class="new-tbl-type  new-mg-t5">
+                        <a href="#" class="new-tbl-cell w25"><span>手机</span></a>
+                        <a href="#" class="new-tbl-cell w25"><span>存储卡</span></a>
+                        <a href="#" class="new-tbl-cell w25"><span>冰箱</span></a>
+                        <a href="#" class="new-tbl-cell w25"><span>智能电视</span></a>
+                    </div>
+                </div>
+                
+                <div class="new-m-fl new-m-fl-v1 new-mg-t10">
+                    <div class="new-tbl-type">
+                        <a class="new-tbl-cell new-p-re" href="#"><img src="./../mobile/images/ad/img_fl2.gif" width="214" height="81" alt="" class="new-mg-rg2"></a>
+                    	<a class="new-tbl-cell new-mfl-tit2" href="#">
+                        	<img src="./../mobile/images/a6.jpg" width="81px" height="81"/>
+                        </a>
+                    </div>
+                    <div class="new-tbl-type new-mg-t5">
+                        <a href="#" class="new-tbl-cell w33"><span>型男T恤</span></a>
+                        <a href="#" class="new-tbl-cell w33"><span>女装T恤</span></a>
+                        <a href="#" class="new-tbl-cell w33"><span>连衣裙</span></a>
+                    </div>
+                </div>
+                
+                <div class="new-m-fl new-mg-t10">
+                    <div class="new-tbl-type">
+                    	<a href="/promotion/hotSaleWare.action?type=103&module=2&sid=64ff8a697be0d660f703d263dc493818" class="new-tbl-cell new-mfl-tit3">
+                        	<img src="./../mobile/images/a7.jpg" width="81px" height="81"/>
+                        </a>
+                        <a class="new-tbl-cell" href="#"><img src="./../mobile/images/ad/img_fl3.gif" width="214" height="81" alt="" class="new-mg-lf2"></a>
+                    </div>
+                    <div class="new-tbl-type new-mg-t5">
+                        <a href="#" class="new-tbl-cell w33"><span>洁面乳</span></a>
+                        <a href="#" class="new-tbl-cell w33"><span>乳液面霜</span></a>
+                        <a href="#" class="new-tbl-cell w33"><span>防晒</span></a>
+                    </div>
+                </div>
+                
+                 <div class="new-m-fl new-m-fl-v1 new-mg-t10">
+                    <div class="new-tbl-type">
+                        <a href="#" class="new-tbl-cell new-p-re"><img src="./../mobile/images/ad/img_fl4.gif" width="214" height="81" alt="" class="new-mg-rg2"></span>
+                    	<a href="#" class="new-tbl-cell new-mfl-tit4">
+                        	<img src="./../mobile/images/a8.jpg" width="81px" height="81"/>
+                        </a>
+                    </div>
+                    <div class="new-tbl-type new-mg-t5">
+                        <a href="#" class="new-tbl-cell w33"><span>品牌尿裤</span></a>
+                        <a href="#" class="new-tbl-cell w33"><span>正品奶粉</span></a>
+                        <a href="#" class="new-tbl-cell w33"><span>早教玩具 </span></a>
+                    </div>
+                </div>
+                
+                <div class="new-m-fl new-mg-t10">
+                    <div class="new-tbl-type">
+                    	<a class="new-tbl-cell new-mfl-tit5" href="#">
+                        	<img src="./../mobile/images/a9.jpg" width="81px" height="81"/>
+                        </a>
+                        <a href="#"><img src="./../mobile/images/ad/img_fl5.gif" width="214" height="81" alt="" class="new-mg-lf2"></a>
+                    </div>
+                    <div class="new-tbl-type new-mg-t5">
+                        <a href="#" class="new-tbl-cell w50"><span>200-100专区</span></a>
+                        <a href="#" class="new-tbl-cell w50"><span>名家散文</span></a>
+                    </div>
+                </div>
+                
+                <div class="new-m-message">
+                	<a href="#">改版啦！用的不爽，过来说一句 &gt;</a>
+                </div>
+				<div class="new-m-message">
+                	<a href="article.php">新闻快报 &gt;</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+</div>
+{include file='foot.dwt'}
+<script type="text/javascript" src="js/hotpic.js"></script>
+</body>
+</html>

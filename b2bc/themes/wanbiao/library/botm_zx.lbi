@@ -1,0 +1,289 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="slideTxtBox5 NewsSet">
+  <div class="hd newsTit" >
+    <ul>
+      <li>媒体报道</li>
+      <li>优惠活动</li>
+      <li>合作专区</li>
+      <li>手表学院</li>
+      <li>奢侈品资讯</li>
+      <li>表友作业</li>
+    </ul>
+  </div>
+  <div class="bd tBdy NewsSetWall ">
+    <ul>
+      <div style="display: block;">
+        <div class="c1 mr10">
+          <div class="r1"> 
+          {insert name='ads' id=27 num=1}
+          <div class="tInfo1 f24"><a href="#">电商为增强客户体验感，二手奢侈品网又一实体店开业</a></div>
+          <div class="tInfo2"><a href="#">2013年12月8日，中国最大的名表商城二手奢侈品网（www.web105.com）在广东省茂名聚佳购物广场新开实体店正式开张营业，这是二手奢侈品网在线下开设的第五家授权分店。除了茂名分店，二手奢侈品网在北京王府井大街、湖南长沙、陕西宝鸡等多处均开设了实体店，销售二手奢侈品网在中国独家代理的部份欧洲名表品牌。</a></div>
+          </div>
+          
+          </div>
+        <div class="c2 mr10">
+          <div class="c2A mr10"> 
+             <div class="r1 mb10">
+                <a href="#">
+                {insert name='ads' id=28 num=1}
+                <div class="tInfo1">二手奢侈品网线下实体店</div></a>
+              </div>
+           
+              <div class="r2">
+                  <a href="#">
+                <div class="tInfo1">二手奢侈品网联合招商银行"感恩九月 以表献情”</div>
+                {insert name='ads' id=29 num=1}</a>
+                </div>
+            </div>
+            
+          <div class="c2B">
+           <div class="r1">
+             <a href="#">
+            <div class="tInfo1">【凤凰网】库尔沃CYS推出赛车系列限量计时腕表</div>
+            {insert name='ads' id=30 num=1}
+            <div class="tInfo2"></div></a>
+            </div></div>
+          <div class="c2C mt10">
+            <ul>
+               <li>{insert name='article' num=5 article="媒体报道"}</li> 
+            </ul>
+          </div>
+        </div>
+        <div class="c3"> <div class="r1">
+        
+          <a href="#"><div class="tInfo1">方寸机械情之肖晓的故事</div></a>
+
+          {insert name='ads' id=31 num=1}
+          <a href="#"><div class="tInfo2">在肖晓心目中，手表最独特的魅力就在于其历史和文化价值，个人风格、性格特点和审美追求都可以通过一块手表表达出来。他性格比较传统，但又有点与众不同，所以他对那些基于传统又有所跳跃的款式就情有独钟。</div> </a>        
+           </div></div>
+      </div>
+    </ul>
+    <ul>
+      <div style="display: block;">
+        <div class="c1 mr10">
+          <div class="r1"> 
+          {insert name='ads' id=32 num=1}
+          <div class="tInfo1 f24"><a href="#">二手奢侈品网携手招商银行，2014年名表新年特惠专场</a></div>
+          <div class="tInfo2"><a href="#">跨年狂欢，“惠”聚博时轩！二手奢侈品网联合招行，携瑞士腕表大牌欧米茄Omega、浪琴Longines、赫柏林Herbelin、爱宝时Epos等倾力打造“2014年元旦名表专场”，2000元博时轩独代品牌抵用券、瑞士名表8折诱惑来袭，势将掀起1314名表饕餮盛宴。</a></div>
+          </div>
+          
+          </div>
+        <div class="c2 mr10">
+          <div class="c2A mr10"> 
+             <div class="r1 mb10">
+                <a href="#">
+                {insert name='ads' id=33 num=1}
+                <div class="tInfo1">招行周3五折名表惠</div></a>
+              </div>
+           
+              <div class="r2">
+                  <a href="#">
+                <div class="tInfo1">赫柏林品牌特惠场</div>
+                {insert name='ads' id=34 num=1}</a>
+                </div>
+            </div>
+            
+          <div class="c2B">
+           <div class="r1">
+             <a href="#">
+            <div class="tInfo1">二手奢侈品网11月新品发布会</div>
+            {insert name='ads' id=35 num=1}
+            <div class="tInfo2">二手奢侈品网11月新品发布会</div></a>
+            </div></div>
+          <div class="c2C mt10">
+           <ul> <li>{insert name='article' num=5 article="优惠活动"}</li></ul>
+          </div>
+        </div>
+        <div class="c3"> <div class="r1">  
+          <a href="#"><div class="tInfo1">跨年巨献三部曲</div></a>
+          {insert name='ads' id=36 num=1}
+          <a href="#"><div class="tInfo2">跨年巨献三部曲，PPTV携手中国最大名表商城二手奢侈品网专场巨献，C罗表、浪琴、赫柏林等名表4.8折狂欢</div> </a>        
+           </div></div>
+      </div>
+    </ul>
+    <ul>
+      <div style="display: block;">
+        <div class="c1 mr10">
+          <div class="r1"> 
+          {insert name='ads' id=37 num=1}
+          <div class="tInfo1 f24"><a href="#">市场合作</a></div>
+          <div class="tInfo2"><a href="#">合作优势 ：1、二手奢侈品网是中国最大的名表商城，2012-2013年腕表行业网站综合影响力排名第一，每天超过百万访问量，销售额位居钟表行业领先地位，荣获“消费者最喜爱网站TOP100”。2、二手奢侈品网是众多大中型银行的合作伙伴，凭借双赢的合作理念，深得信赖。</a></div>
+          </div>
+          
+          </div>
+        <div class="c2 mr10">
+          <div class="c2A mr10"> 
+             <div class="r1 mb10">
+                <a href="#">
+                {insert name='ads' id=38 num=1}
+                <div class="tInfo1">欧洲名表线上分销</div></a>
+              </div>
+           
+              <div class="r2">
+                  <a href="#">
+                <div class="tInfo1">博时轩名表品鉴沙龙</div>
+                {insert name='ads' id=39 num=1}</a>
+                </div>
+            </div>
+            
+          <div class="c2B">
+           <div class="r1">
+             <a href="#">
+            <div class="tInfo1">欧洲名表专卖店加盟</div>
+            {insert name='ads' id=40 num=1}
+            <div class="tInfo2">北上广的成功经验！二手奢侈品网线下分销，诚邀您加盟！</div></a>
+            </div></div>
+          <div class="c2C mt10">
+           <ul><li>{insert name='article' num=5 article="合作专区"}</li> </ul>
+          </div>
+        </div>
+        <div class="c3"> <div class="r1">  
+          <a href="#"><div class="tInfo1">欧洲名表品牌合作 Brand Representation</div></a>
+          {insert name='ads' id=41 num=1}
+          <a href="#"><div class="tInfo2">二手奢侈品网是瑞士Cuervo y Sobrinos、法国Michel Herbelin、奥地利Jacques Lemans等十多个欧洲品牌的中国区独家代理商。诚邀国际钟表品牌洽谈合作，携手共创双赢!</div> </a>        
+           </div></div>
+      </div>      
+    </ul>  
+    
+    <ul>
+       <div style="display: block;">
+        <div class="c1 mr10">
+          <div class="r1"> 
+          {insert name='ads' id=42 num=1}
+          <div class="tInfo1 f24"><a href="#">二手奢侈品网：中国最大的名表商城</a></div>
+          <div class="tInfo2"><a href="#">二手奢侈品网是中国最大的名表网上商城，主要经营世界知名品牌手表，品牌包括百达翡丽、宝玑、浪琴、瑞士爱宝时、迪沃斯等，连续三年被评为中国“消费者最喜爱网站”百强，广东省消费者委员会 “广东省网购维权示范单位”、 广东省工商局“广东省守合同重信用”单位，同时也是中国银行、工商银行、招商银行等众多大型银行的合作商户。</a></div>
+          </div>
+          
+          </div>
+        <div class="c2 mr10">
+          <div class="c2A mr10"> 
+             <div class="r1 mb10">
+                <a href="#">
+                {insert name='ads' id=43 num=1}
+                <div class="tInfo1">手表排行榜之：顶级奢侈品牌TOP10</div></a>
+              </div>
+           
+              <div class="r2">
+                  <a href="#">
+                <div class="tInfo1">雅克利曼敢死队系列 硬汉男人腕表</div>
+                {insert name='ads' id=44 num=1}</a>
+                </div>
+            </div>
+            
+          <div class="c2B">
+           <div class="r1">
+             <a href="#">
+            <div class="tInfo1">爱宝时：创世纪的诗文</div>
+            {insert name='ads' id=45 num=1}
+            <div class="tInfo2">二手奢侈品网爱宝时他世纪诗文专题为您诠释爱宝时腕表品牌历史，为您推荐最新款爱宝时手表(图片、价格、怎么样)等等Epos手表相关信息......</div></a>
+            </div></div>
+          <div class="c2C mt10">
+           <ul>
+              <li>{insert name='article' num=5 article="手表学院"}</li> 
+            </ul>
+          </div>
+        </div>
+        <div class="c3"> <div class="r1">  
+          <a href="#"><div class="tInfo1">每周一“毒”——江诗丹顿-Patrimony传承系列 89000/000P-9843 男士机械表</div></a>
+          {insert name='ads' id=46 num=1}
+          <a href="#"><div class="tInfo2">2006年，为了纪念精密机械与珍贵材质的这种与生俱来的完美结合，江诗丹顿推出了限量铂金珍藏系列，专为超卓腕表的收藏爱好者而设计。而这款传承系列89000/000P-9843更是达到了制表工艺的顶峰，将以陀飞轮的复杂功能发挥到极致</div> </a>        
+           </div></div>
+      </div>
+    </ul>
+    
+    <ul>
+        <div style="display: block;">
+        <div class="c1 mr10">
+          <div class="r1"> 
+          {insert name='ads' id=47 num=1}
+          <div class="tInfo1 f24"><a href="#">限量款：瑞士爱宝时（EPOS） 3412.183.24.30.27</a></div>
+          <div class="tInfo2"><a href="#">爱宝时，近一个世纪的古老制表品牌，在瑞士享誉盛名，得到众多名流的热爱与推崇。这款爱宝时EPOS-Passion系列 3412.183.24.30.27 男士机械表，典雅白色表盘，十二点钟位置独特镂空透窗，大气金色柳叶指针时尚大方；搭配简洁金色数字刻度，简约大气。</a></div>
+          </div>
+          
+          </div>
+        <div class="c2 mr10">
+          <div class="c2A mr10"> 
+             <div class="r1 mb10">
+                <a href="#">
+                {insert name='ads' id=48 num=1}
+                <div class="tInfo1">张亮、天天化身飞行员与小王子</div></a>
+              </div>
+           
+              <div class="r2">
+                  <a href="#">
+                <div class="tInfo1">2013年法国赫柏林广告欣赏</div>
+                {insert name='ads' id=49 num=1}</a>
+                </div>
+            </div>
+            
+          <div class="c2B">
+           <div class="r1">
+             <a href="#">
+            <div class="tInfo1">大怪鱼和库尔沃（CYS）的传说</div>
+            {insert name='ads' id=50 num=1}
+            <div class="tInfo2">如此美好的腕表怎么会和怪鱼有关系呢？原来，此鱼在加勒比海地区是一个受保护的物种，它一直受到古巴人的高度尊敬。在为了庆祝表厂成立1周年，钟表制表商Cuervo y Sobrinos发布一款以“Manjuari”鱼命名的潜水表款Robusto Buceador Manjuari 1882 GMT Watch，并铭刻有加勒比海图标。这次的Manjuari鱼主题表款，提供了更为精湛的防水性能，酷感十足。</div></a>
+            </div></div>
+          <div class="c2C mt10">
+           <ul>
+             <li>{insert name='article' num=5 article="奢侈品资讯"}</li> 
+            </ul>
+          </div>
+        </div>
+        <div class="c3"> <div class="r1">  
+          <a href="#"><div class="tInfo1">每周一“毒”——江诗丹顿-Patrimony传承系列 89000/000P-9843 男士机械表</div></a>
+          {insert name='ads' id=51 num=1}
+          <a href="#"><div class="tInfo2">即使你对现代科技充满敬仰，也不要让你的手腕空空如也。2013年11月二手奢侈品网带来本月新品上市，为广大爱表人士献上一场视觉盛宴</div> </a>        
+           </div></div>
+      </div>
+    </ul>
+    
+    <ul>
+      <div style="display: block;">
+        <div class="c1 mr10">
+          <div class="r1"> 
+          {insert name='ads' id=52 num=1}
+          <div class="tInfo1 f24"><a href="#">表友作业：双十一入手的爱宝时终于到手！！！</a></div>
+          <div class="tInfo2"><a href="#">好像没什么东西好买，没有了去年双十一那种血拼的心情。但是又总觉得我应该为双11贡献点什么~~想到之前逛二手奢侈品网收藏的这只爱宝时8000.700.29.85.15表，狠一狠心让老公赞助我给买了！！</a></div>
+          </div>
+          
+          </div>
+        <div class="c2 mr10">
+          <div class="c2A mr10"> 
+             <div class="r1 mb10">
+                <a href="#">
+                {insert name='ads' id=53 num=1}
+                <div class="tInfo1">表友分享：晒一晒我买给老爸的浪琴表</div></a>
+              </div>
+           
+              <div class="r2">
+                  <a href="#">
+                <div class="tInfo1">表友作业：复古小清新赫柏林腕表入荷</div>
+                {insert name='ads' id=54 num=1}</a>
+                </div>
+            </div>
+            
+          <div class="c2B">
+           <div class="r1">
+             <a href="#">
+            <div class="tInfo1">表友作业：赫柏林晒单,致最爱的你，花栗鼠</div>
+            {insert name='ads' id=55 num=1}
+            <div class="tInfo2"></div></a>
+            </div></div>
+          <div class="c2C mt10">
+           <ul>
+              <li>{insert name='article' num=5 article="表友作业"}</li> 
+            </ul>
+          </div>
+        </div>
+        <div class="c3"> <div class="r1">  
+          <a href="#"><div class="tInfo1">表友作业：我与瑞士迪沃斯品牌的偶遇</div></a>
+          {insert name='ads' id=56 num=1}
+          <a href="#"><div class="tInfo2">现在向大家显摆一下呗，俗话不是说千金难买心头好么。可是我只花了四千多的买了心爱的表表，给个赞呗。</div> </a>        
+           </div></div>
+      </div>
+    </ul>
+   
+    
+  </div>
+</div>
+<script type="text/javascript">jQuery(".slideTxtBox5").slide({autoPlay:true});</script> 
